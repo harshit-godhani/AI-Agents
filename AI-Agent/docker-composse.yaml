@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  hotel-finder-app:
+    build: .
+    container_name: hotel-finder-app
+    ports:
+      - "8501:8501"
+    environment:
+      - GROQ_API_KEY=${GROQ_API_KEY}
+      - GRAPHHOPPER_API_KEY=${GRAPHHOPPER_API_KEY}
+    volumes:
+      - .:/app
+    restart: unless-stopped
